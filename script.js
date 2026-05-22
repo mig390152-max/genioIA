@@ -51,14 +51,12 @@ async function enviarMensagem() {
     try {
 
         const resposta = await fetch(
-            "https://api.groq.com/openai/v1/chat/completions",
+            "/api/chat",
             {
                 method: "POST",
 
                 headers: {
-                    "Content-Type": "application/json",
-                    "Authorization":
-                        `Bearer ${API_KEY}`
+                    "Content-Type": "application/json"
                 },
 
                 body: JSON.stringify({
@@ -249,7 +247,7 @@ document
 
         configModal.classList.add("ativo");
 
-});
+    });
 
 // FECHAR CONFIG
 function fecharConfig() {
@@ -281,33 +279,33 @@ function limparChat() {
 
 // INÍCIO
 document
-  .getElementById("inicio")
-  .addEventListener("click", () => {
+    .getElementById("inicio")
+    .addEventListener("click", () => {
 
-    window.scrollTo({
-      top: 0,
-      behavior: "smooth"
+        window.scrollTo({
+            top: 0,
+            behavior: "smooth"
+        });
+
     });
-
-});
 
 // CONVERSAS
 document
-  .getElementById("conversas")
-  .addEventListener("click", () => {
+    .getElementById("conversas")
+    .addEventListener("click", () => {
 
-    alert("💬 Histórico em desenvolvimento");
+        alert("💬 Histórico em desenvolvimento");
 
-});
+    });
 
 // IMAGENS
 document
-  .getElementById("imagens")
-  .addEventListener("click", () => {
+    .getElementById("imagens")
+    .addEventListener("click", () => {
 
-    input.value =
-      "Quero criar uma imagem";
+        input.value =
+            "Quero criar uma imagem";
 
-    input.focus();
+        input.focus();
 
-});
+    });
