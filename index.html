@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Gênio IA</title>
+
+  <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+  <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+
+
+  <!-- TOPO -->
+  <header class="topo" id="topo">
+    <h1>Gênio IA</h1>
+  </header>
+
+  <button class="abrir-menu" onclick="toggleMenu()">
+    ☰
+  </button>
+
+  <aside class="menu" id="menu">
+    <div class="logo">
+      🤖 Gênio IA
+    </div>
+
+    <button class="novo-chat">
+      + Novo chat
+    </button>
+
+    <nav>
+
+      <div class="item" id="inicio">
+        🏠
+        <span>Início</span>
+      </div>
+
+      <div class="item" id="conversas">
+        💬
+        <span>Conversas</span>
+      </div>
+
+      <div class="item" id="imagens">
+        🎨
+        <span>Imagens</span>
+      </div>
+
+      <div class="item" id="config">
+        ⚙️
+        <span>Configurações</span>
+      </div>
+
+      </div>
+
+    </nav>
+
+  </aside>
+
+  <!-- CHAT -->
+  <main id="chat"></main>
+
+
+
+  <!-- SUGESTÕES INICIAIS -->
+  <section class="sugestoes" id="sugestoes">
+
+    <div onclick="usarSugestao('Crie um site moderno')">
+      💻
+      <span>Criar site</span>
+    </div>
+
+    <div onclick="usarSugestao('Me dê ideias de negócios')">
+      🚀
+      <span>Ideias de negócio</span>
+    </div>
+
+    <div onclick="usarSugestao('Quais foram os últimos jogos?')">
+      ⚽
+      <span>Últimos jogos</span>
+    </div>
+
+    <div onclick="usarSugestao('Me ajude com programação')">
+      🤖
+      <span>Programação</span>
+    </div>
+
+    <div onclick="usarSugestao('Quero criar uma imagem')">
+      🎨
+      <span>Criar imagem</span>
+    </div>
+
+  </section>
+
+  <!-- INPUT -->
+  <form class="entrada" onsubmit="enviarMensagem(); return false;">
+
+    <input id="input" placeholder="Mensagem..." autocomplete="off" />
+
+    <button type="button" id="mic">🎤</button>
+    <button type="submit">↑</button>
+
+  </form>
+
+  <!-- CONFIGURAÇÕES -->
+  <div class="config-modal" id="configModal">
+
+    <div class="config-box">
+
+      <h2>⚙️ Configurações</h2>
+
+      <button onclick="toggleDarkMode()">
+        🌙 Dark Mode
+      </button>
+
+      <button onclick="limparChat()">
+        🧹 Limpar conversa
+      </button>
+
+      <button onclick="fecharConfig()">
+        ✖ Fechar
+      </button>
+
+    </div>
+
+  </div>
+
+  <script src="script.js"></script>
+
+</body>
+
+</html>

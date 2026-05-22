@@ -1,0 +1,541 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html,
+body {
+    height: 100%;
+    font-family: Inter, system-ui, Arial;
+    background: #f7f7f8;
+    overflow: hidden;
+}
+
+/* TOPO */
+.topo {
+    position: fixed;
+
+    top: 15px;
+    left: 70px;
+
+    font-size: 14px;
+    color: #444;
+
+    z-index: 100;
+
+    transition: 0.3s ease;
+}
+
+.topo.escondido {
+    opacity: 0;
+
+    pointer-events: none;
+}
+
+/* TOPO EMPURRADO */
+.topo.movido {
+    left: 290px;
+}
+
+/* CHAT */
+#chat {
+    height: 100vh;
+
+    overflow-y: auto;
+
+    padding-top: 80px;
+    padding-bottom: 120px;
+
+    display: flex;
+    flex-direction: column;
+
+    margin-left: 70px;
+    gap: 18px;
+}
+
+/* LINHA */
+.linha {
+    width: 100%;
+
+    display: flex;
+    justify-content: center;
+}
+
+/* CONTEÚDO DA MENSAGEM */
+.mensagem {
+    width: 100%;
+    max-width: 760px;
+
+    padding: 0 20px;
+
+    font-size: 15px;
+    line-height: 1.8;
+
+    color: #000000;
+}
+
+/* PARÁGRAFOS */
+.mensagem p {
+    margin: 14px 0;
+}
+
+/* LISTAS */
+.mensagem ul,
+.mensagem ol {
+    margin: 14px 0 14px 22px;
+}
+
+/* ITENS */
+.mensagem li {
+    margin: 8px 0;
+}
+
+/* TÍTULOS */
+.mensagem h1,
+.mensagem h2,
+.mensagem h3 {
+    margin: 20px 0 12px;
+}
+
+/* NEGRITO */
+.mensagem strong {
+    font-weight: 600;
+}
+
+/* CÓDIGO */
+.mensagem pre {
+    margin: 16px 0;
+
+    padding: 14px;
+
+    overflow-x: auto;
+
+    border-radius: 12px;
+
+    background: #e5e7eb;
+    color: #111827;
+}
+
+/* INLINE CODE */
+.mensagem code {
+    font-family: monospace;
+}
+
+/* USER */
+.linha.user .mensagem {
+    display: flex;
+    justify-content: flex-end;
+}
+
+/* BOLHA USER */
+.linha.user .mensagem p {
+    background: #dbeafe;
+
+    padding: 12px 16px;
+
+    border-radius: 18px;
+
+    max-width: fit-content;
+
+    margin-left: auto;
+}
+
+/* INPUT */
+.entrada {
+    position: fixed;
+
+    bottom: 20px;
+    left: 50%;
+
+    transform: translateX(-50%);
+
+    width: 95%;
+    max-width: 760px;
+
+    display: flex;
+    gap: 10px;
+
+    padding: 12px 14px;
+
+    background: white;
+
+    border: 1px solid #e5e7eb;
+    border-radius: 16px;
+
+    z-index: 200;
+}
+
+/* INPUT */
+.entrada input {
+    flex: 1;
+
+    border: none;
+    outline: none;
+
+    background: transparent;
+
+    font-size: 15px;
+}
+
+/* BOTÕES */
+.entrada button {
+    border: none;
+    background: none;
+
+    cursor: pointer;
+
+    font-size: 18px;
+}
+
+/* SUGESTÕES */
+.sugestoes {
+    position: fixed;
+
+    top: 80px;
+    left: 20px;
+
+    display: flex;
+    flex-direction: column;
+
+    gap: 10px;
+
+    z-index: 100;
+}
+
+/* BOTÃO */
+.sugestoes div {
+    width: 48px;
+    height: 48px;
+
+    overflow: hidden;
+
+    display: flex;
+    align-items: center;
+
+    gap: 12px;
+
+    padding: 12px;
+
+    background: white;
+
+    border: 1px solid #e5e7eb;
+    border-radius: 14px;
+
+    cursor: pointer;
+
+    transition: all 0.25s ease;
+
+    white-space: nowrap;
+
+    font-size: 15px;
+}
+
+.sugestoes div:hover {
+    width: 220px;
+
+    background: #f3f4f6;
+}
+
+/* TEXTO ESCONDIDO */
+/* TEXTO */
+.sugestoes div span {
+    display: none;
+}
+
+/* HOVER */
+.sugestoes div:hover span {
+    display: inline;
+}
+
+/* HOVER */
+.sugestoes div:hover span {
+    max-width: 140px;
+
+    opacity: 1;
+}
+
+/* MOSTRA TEXTO */
+.sugestoes div:hover span {
+    opacity: 1;
+    width: 140px;
+}
+
+/* FLOW */
+#flow {
+    position: fixed;
+
+    bottom: 90px;
+    left: 50%;
+
+    transform: translateX(-50%);
+
+    width: 100%;
+    max-width: 760px;
+}
+
+/* SUGESTÕES RECOLHIDAS */
+.sugestoes.recolhido div {
+    width: 46px;
+
+    overflow: hidden;
+    white-space: nowrap;
+
+    padding: 10px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* ESCONDE TEXTO */
+.sugestoes.recolhido div span {
+    display: none;
+}
+
+.menu {
+    position: fixed;
+
+    top: 0;
+    left: -260px;
+
+    width: 260px;
+    height: 100vh;
+
+    background: white;
+
+    border-right: 1px solid #e5e7eb;
+
+    padding: 20px;
+
+    transition: 0.3s ease;
+
+    z-index: 400;
+
+    overflow-x: hidden;
+}
+
+
+
+.logo {
+    display: flex;
+    align-items: center;
+
+    gap: 12px;
+
+    font-size: 18px;
+    font-weight: 600;
+
+    margin-left: 55px;
+    margin-bottom: 20px;
+
+    white-space: nowrap;
+}
+
+.novo-chat {
+    width: 100%;
+
+    border: none;
+
+    padding: 12px;
+
+    border-radius: 12px;
+
+    background: #f3f4f6;
+
+    cursor: pointer;
+
+    margin-bottom: 20px;
+}
+
+.item {
+    display: flex;
+    align-items: center;
+
+    gap: 12px;
+
+    padding: 14px;
+
+    border-radius: 12px;
+
+    cursor: pointer;
+
+    white-space: nowrap;
+
+    transition: 0.2s;
+}
+
+.item:hover {
+    background: #f3f4f6;
+}
+
+/* BOTÃO MENU */
+.abrir-menu {
+    position: fixed;
+
+    top: 15px;
+    left: 15px;
+
+    z-index: 500;
+
+    width: 42px;
+    height: 42px;
+
+    border: none;
+
+    border-radius: 12px;
+
+    background: white;
+
+    cursor: pointer;
+
+    font-size: 20px;
+}
+
+
+
+/* MENU ABERTO */
+.menu.aberto {
+    left: 0;
+}
+
+#chat,
+.entrada,
+.sugestoes {
+    transition: 0.3s ease;
+}
+
+.menu.aberto ~ #chat,
+.menu.aberto ~ .sugestoes,
+.menu.aberto ~ .entrada {
+    margin-left: 260px;
+}
+
+/* MODAL CONFIG */
+.config-modal {
+    position: fixed;
+
+    inset: 0;
+
+    background: rgba(0,0,0,0.35);
+
+    display: none;
+
+    align-items: center;
+    justify-content: center;
+
+    z-index: 999;
+}
+
+/* MODAL ATIVO */
+.config-modal.ativo {
+    display: flex;
+}
+
+/* BOX */
+.config-box {
+    width: 320px;
+
+    background: white;
+
+    padding: 24px;
+
+    border-radius: 20px;
+
+    display: flex;
+    flex-direction: column;
+
+    gap: 14px;
+
+    box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+}
+
+/* BOTÕES */
+.config-box button {
+    border: none;
+
+    padding: 12px;
+
+    border-radius: 12px;
+
+    cursor: pointer;
+
+    background: #f3f4f6;
+
+    font-size: 15px;
+}
+
+/* DARK MODE */
+body.dark {
+    background: #111827;
+
+    color: white;
+}
+
+body.dark .menu,
+body.dark .entrada,
+body.dark .config-box,
+body.dark .sugestoes div {
+    background: #1f2937;
+
+    color: white;
+
+    border-color: #374151;
+}
+
+body.dark input {
+    color: white;
+}
+
+/* TEXOS NO DARK MODE */
+body.dark,
+body.dark .mensagem,
+body.dark .mensagem p,
+body.dark .topo,
+body.dark .item,
+body.dark .logo,
+body.dark .config-box h2,
+body.dark .config-box button {
+    color: white;
+}
+
+/* MENSAGEM USER */
+body.dark .linha.user .mensagem p {
+    background: #374151;
+
+    color: white;
+}
+
+/* CÓDIGO */
+body.dark .mensagem pre {
+    background: #111827;
+
+    color: #e5e7eb;
+}
+
+/* INPUT */
+body.dark input::placeholder {
+    color: #9ca3af;
+}
+
+/* CONFIG BOTÕES DARK */
+body.dark .config-box button {
+    background: #374151;
+
+    color: white;
+}
+
+/* HOVER */
+body.dark .config-box button:hover {
+    background: #4b5563;
+}
+
+/* MODAL */
+body.dark .config-box {
+    background: #1f2937;
+}
+
+/* FUNDO ESCURO */
+body.dark .config-modal {
+    background: rgba(0,0,0,0.6);
+}
